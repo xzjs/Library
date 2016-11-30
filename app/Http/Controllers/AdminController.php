@@ -18,7 +18,7 @@ class AdminController extends Controller
             $pwd = md5($request->input('pwd'));
             $admin = Admin::where('name', $name)->where('pwd', $pwd)->firstOrFail();
             return json_encode($admin->id);
-        }catch (Exception $e){
+        }catch (\Exception $e){
             return json_encode(0);
         }
     }
