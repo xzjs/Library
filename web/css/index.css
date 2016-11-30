@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding:0;
+}
+body{
+    width:100%;
+}
+.library{
+    width:550px;
+    height:400px;
+    margin:0 auto;
+    margin-top: 160px;
+    border: 1px solid lightblue;
+}
+.library_name{
+    height:80px;
+    background: lightblue;
+    color: #fff;
+    font:bold 40px/80px "FangSong_GB2312 ";
+    text-align: center;
+}
+.log_tips{
+    padding-top: 30px;
+    width: 322px;
+    margin:0 auto;
+}
+.log_tips ul{
+    list-style: none;
+    width:322px;
+}
+.log_tips ul li{
+    width:140px;
+    height:40px;
+    line-height: 40px;
+    display: inline-block;
+    background: #e3e3e3;
+    text-align: center;
+    border-top: 1px solid #8c8c8c;
+    border-left: 1px solid #8c8c8c;
+    border-right: 1px solid #8c8c8c;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+}
+.log_tips ul .selected{
+    background: #fff;
+    position: relative;
+    bottom: -1px;
+}
+.log_tips .form{
+
+    width:320px;
+    height:180px;
+    border:1px solid #8c8c8c;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+    padding-top: 50px;
+}
+.log_massage{
+    height:40px;
+}
+.register{
+    padding-top: 30px;
+}
+.register a{
+    text-decoration: none;
+    color: firebrick;
+    cursor: pointer;
+}
+.submit input{
+    margin:0 10px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
