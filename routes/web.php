@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Route::post('/admin/login','AdminController@login');
 
-Route::resource('books','BookController');
+Route::resource('book','BookController');

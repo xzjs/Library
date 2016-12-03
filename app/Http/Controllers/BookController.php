@@ -30,22 +30,27 @@ class BookController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $book=new Book;
-        $book->fill($request->all());
-        $book->img=$this->upload_file($request->file('img'),'img');
-        $book->txt=$this->upload_file($request->file('txt'),'txt');
-        $book->save();
+        try {
+            $book = new Book;
+            $book->fill($request->all());
+            $book->img = $this->upload_file($request->file('img'), 'img');
+            $book->txt = $this->upload_file($request->file('txt'), 'txt');
+            $book->saveOrFail();
+            return json_encode(true);
+        } catch (\Exception $e) {
+            return json_encode($e->getMessage());
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -56,7 +61,7 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -67,8 +72,8 @@ class BookController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -79,7 +84,7 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -93,15 +98,16 @@ class BookController extends Controller
      * @param $type 类型
      * @return string 保存的文件名
      */
-    private function upload_file($file,$type){
-        $extension=$file.guessExtension();
-        $name=time().$extension;
-        if($type=='img'){
-            $destination_path='uploads/imgs/';
-        }else{
-            $destination_path='uploads/txts/';
+    private function upload_file($file, $type)
+    {
+        $extension = $file->extension();
+        $name = time() . '.' . $extension;
+        if ($type == 'img') {
+            $destination_path = 'uploads/imgs/';
+        } else {
+            $destination_path = 'uploads/txts/';
         }
-        $file->move($destination_path,$name);
+        $file->move($destination_path, $name);
         return $name;
     }
 }

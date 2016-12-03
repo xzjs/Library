@@ -53,8 +53,15 @@ $(document).ready(function () {
     });
     $("#save").click(function () {
         var formData=new FormData($("form")[0]);
-        $.post("/library/public/book",formData,function (e) {
-           console.log(e) ;
-        },"json");
+        $.ajax({
+            url:"/library/public/book",
+            type:'post',
+            data:formData,
+            processData:false,
+            contentType:false,
+            success:function (e) {
+                console.log(e);
+            }
+        })
     });
 })
