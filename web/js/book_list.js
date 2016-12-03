@@ -51,4 +51,10 @@ $(document).ready(function () {
     $(".modification").click(function () {
 
     });
+    $("#save").click(function () {
+        var formData=new FormData($("form")[0]);
+        $.post("/library/public/book",formData,function (e) {
+           console.log(e) ;
+        },"json");
+    });
 })
