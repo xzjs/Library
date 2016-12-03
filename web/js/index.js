@@ -4,7 +4,7 @@
 $(document).ready(function(){
     $(".log_tips ul li").click(function () {
         $(".log_tips ul li").removeClass("selected");
-        $(this).addClass("selected")
+        $(this).addClass("selected");
     })
     $("#confirm").click(function(){
         var name=$("#name").val();
@@ -15,7 +15,11 @@ $(document).ready(function(){
             var manager_url="/library/public/admin/login";
         }
         $.post(manager_url,{name:name,pwd:password},function(result){
-            console.log(result);
+            if(result==0){
+                $(".tip").css("display","block");
+            }else if(result>0){
+                window.location.href="book_list.html";
+            }
         });
     })
 })

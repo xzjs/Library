@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/book_list.css">
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/book_list.js"></script>
+    <title>BMS</title>
+</head>
+<body>
+    <div class="bms">
+        <div class="bms_title">
+            <p>图书管理</p>
+            <img src="img/bgc.jpg" alt="">
+        </div>
+        <div>
+            <div class="book_show">
+                <div class="cover">
+                    <img src="img/cover.jpg" alt="">
+                </div>
+                <div>
+                    <p>Even if the present, the match does not stop changes the page.</p>
+                </div>
+            </div>
+            <div class="book_list">
+                <div id="search_list">
+                    <select name="" id="">
+                        <option value="图书编号">图书编号</option>
+                        <option value="图书名称">图书名称</option>
+                        <option value="作者">作者</option>
+                    </select>
+                    <div class="search_input">
+                        <input class="search_input1" type="text">
+                        <input class="search_input2" type="submit" value="查询">
+                    </div>
+                </div>
+                <div class="book_list_manage">
+                    <a class="delete" href="javascript:void(0)">删除</a>
+                    <a class="add" href="javascript:void(0)" data-toggle="modal" data-target="#myModal">添加</a>
+
+                </div>
+
+                <div class="book_list_table">
+                    <table>
+                        <tr class="book_message">
+                            <th width="5%">
+                                <input class="check_all" type="checkbox">
+                            </th>
+                            <th width="5%">序号</th>
+                            <th width="15%">图书编号</th>
+                            <th width="40%">图书名称</th>
+                            <th>作者</th>
+                            <th>出版社</th>
+                            <th width="4%"><img src="" alt=""></th>
+                        </tr>
+                        <tr class="book_message1">
+                            <td>
+                                <input name="checkbox" type="checkbox">
+                            </td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td width="4%"><img class="modification" src="img/修改.png" alt=""></td>
+                        </tr>
+                        <tr class="book_message1">
+                            <td>
+                                <input name="checkbox" type="checkbox">
+                            </td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td width="4%"><img class="modification" src="img/修改.png" alt=""></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">图书添加</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="book_message_option">
+                        <lable class="option_lable">图书编号</lable>
+                        <input type="text" >
+                    </div>
+                    <div class="book_message_option">
+                        <lable class="option_lable">图书名称</lable>
+                        <input type="text">
+                    </div>
+                    <div class="book_message_option">
+                        <lable class="option_lable">图书名称</lable>
+                        <input type="text">
+                    </div>
+                    <div class="book_message_option">
+                        <lable class="option_lable">作者</lable>
+                        <input type="text">
+                    </div>
+                    <div class="book_message_option">
+                        <lable class="option_lable">出版社</lable>
+                        <input type="text">
+                    </div>
+                    <div class="book_message_option">
+                        <lable class="option_lable">封面图片</lable>
+                        <input type="file" style="display: inline-block" id="cover_file">
+                        <img class="preview" src="" alt="">
+                    </div>
+                    <div class="book_message_option">
+                        <lable class="option_lable">电子书</lable>
+                        <input type="file" style="display: inline-block">
+                    </div>
+                    <div class="book_message_option">
+                        <lable class="option_lable">图书简介</lable>
+                        <textarea name="" id="" cols="30" rows="10" style="display: inline-block"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
