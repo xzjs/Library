@@ -1,0 +1,136 @@
+*{
+    margin:0;
+    padding:0;
+}
+.bms{
+    width:1024px;
+    margin:0 auto;
+    font-family: "Adobe 仿宋 Std R";
+}
+.bms_title{
+    width:100%;
+    height:110px;
+    color: #000;
+    font:bold 50px/110px  "Adobe 仿宋 Std R";
+    text-align: center;
+    position: relative;
+    top:5px;
+    box-shadow: 2px 2px 3px #c0a16b;
+}
+.bms_title img{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    left:0;
+    opacity: 0.2;
+}
+.book_show{
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 300px;
+    height:500px;
+
+    float: left;
+}
+.cover {
+    margin:20px auto;
+    width:200px;
+    height:300px;
+    box-shadow:#8c8c8c 3px 3px 3px;
+}
+.cover img{
+    width:100%;
+    height:100%;
+}
+.book_show div p{
+    margin: 5px auto;
+    width:260px;
+}
+.book_list{
+    margin-top:20px ;
+    width: 700px;
+    height:500px;
+
+    float: left;
+}
+#search_list{
+    margin:20px 100px;
+}
+#search_list select{
+    width:100px;
+    height:32px;
+    float: left;
+}
+.search_input1{
+    width:300px;
+    height:32px;
+    float: left;
+}
+.search_input2{
+    width:50px;
+    height:32px;
+    margin-left:0;
+}
+.book_list_manage{
+    margin: 3px 15px;
+}
+.book_list_manage a{
+    display: inline-block;
+    text-align: center;
+    width:40px;
+    height:20px;
+    line-height: 20px;
+    text-decoration: none;
+    background-color: lightblue;
+    font-size: 12px;
+    color: #000;
+    border-radius: 2px;
+    box-shadow: #5e5e5e 1px 1px 2px;
+}
+.book_list_table table{
+    width:680px;
+    margin:0 auto;
+}
+.book_list_table table tr{
+    height:25px;
+    mso-cellspacing: 0px;
+    text-align: center;
+    border:1px solid #fff;
+}
+.book_message{
+    background-color: lightblue;
+}
+.book_message th{
+    text-align: center;
+}
+.book_message1{
+    background-color: #f9f9f9;
+}
+.book_message_option{
+}
+.option_lable{
+    display: inline-block;
+    text-align: right;
+    width:200px;
+    height:30px;
+    margin:2px;
+}
+.book_message_option input{
+    width:200px;
+}
+.book_message_option textarea{
+    width:200px;
+    height:48px;
+}
+.preview{
+    width:100px;
+    height:120px;
+    margin-left: 210px;
+    margin-bottom: 10px;
+    border:1px solid lightgray;
+}
+.modification{
+    width:16px;
+    height:16px;
+}
