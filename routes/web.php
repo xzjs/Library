@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::post('/admin/login','AdminController@login');
+
+Route::resource('books','BookController');
