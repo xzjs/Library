@@ -41,12 +41,15 @@ function getBooksList () {
         var table=$("table");
         $(".book_message1").remove();
         for(var i=0;i<result.length;i++){
-            var html='<tr class="book_message1"><td><input name="checkbox" type="checkbox"> </td> <td>'+result[i]["id"]+'</td> <td>'+result[i]["book_no"]+'</td> <td>'+result[i]["name"]+'</td> <td>'+result[i]["author"]+'</td> <td>'+result[i]["publish"]+'</td> <td width="4%"><img class="modification" src="img/modify.png" alt=""></td> </tr>';
+            var html='<tr data-img='+result[i]["img"]+' data-content='+result[i]["content"]+' class="book_message1"><td><input name="checkbox" type="checkbox"> </td> <td>'+result[i]["id"]+'</td> <td>'+result[i]["book_no"]+'</td> <td><a href="/library/public/uploads/txts/'+result[i]["txt"]+'">'+result[i]["name"]+'</a></td> <td>'+result[i]["author"]+'</td> <td>'+result[i]["publish"]+'</td> <td width="4%"><img class="modification" src="img/modify.png" alt=""></td> </tr>';
             table.append(html);
         }
         var tr=$(".book_message1");
         tr.mouseover(function () {
             $(this).css("background-color","#e8e8e8");
+            $("#cover_img").attr("src","/library/public/uploads/imgs/"+$(this).data("img"));
+            $("#content").html($(this).data("content"));
+
         });
         tr.mouseout(function () {
             $(this).css("background-color","#f9f9f9");
@@ -56,10 +59,12 @@ function getBooksList () {
             $("[name=checkbox]:checkbox")
             if(check_all==true){
                 $("[name=checkbox]:checkbox").each(function () {
-
-                })attr("checked",true);
+                    this.checked=true;
+                });
             }else{
-                $("[name=checkbox]:checkbox").attr("checked",false);
+                $("[name=checkbox]:checkbox").each(function () {
+                    this.checked=false;
+                });
             };
 
         });
