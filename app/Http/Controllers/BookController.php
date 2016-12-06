@@ -79,7 +79,20 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $book = Book::find($id);
+            $book->fill($request->all());
+            if ($request->file('img') != null) {
+                $book->img = $this->upload_file($request->file('img'), 'img');
+            }
+            if ($request->file('txt') != null) {
+                $book->txt = $this->upload_file($request->file('txt'), 'txt');
+            }
+            $book->saveOrFail();
+            return json_encode(true);
+        }catch (\Exception $e){
+            return json_encode($e->getMessage());
+        }
     }
 
     /**
