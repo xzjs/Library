@@ -47,7 +47,6 @@ $(document).ready(function () {
     $("#save").click(function () {
         var book_id = $("#book_id").val();
         var formData = new FormData($("form")[0]);
-        var flag=true;
         if (book_id == "0") {
             $.ajax({
                 url: "/library/public/book",
@@ -56,8 +55,9 @@ $(document).ready(function () {
                 processData: false,
                 contentType: false,
                 success: function (e) {
-                    if (e != 'true') {
-                        flag=false;
+                    if (e == 'true') {
+                        $('#myModal').modal('hide');
+                        getBooksList();
                     }
                 }
             })
@@ -69,16 +69,12 @@ $(document).ready(function () {
                 processData: false,
                 contentType: false,
                 success: function (e) {
-                    if (e != "true") {
-                        console.log(e);
-                        flag=false;
+                    if (e == "true") {
+                        $('#myModal').modal('hide');
+                        getBooksList();
                     }
                 }
             });
-        }
-        if(flag==true){
-            $('#myModal').modal('hide');
-            getBooksList();
         }
     });
     getBooksList();
