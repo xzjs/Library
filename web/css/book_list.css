@@ -88,6 +88,20 @@
     border-radius: 2px;
     box-shadow: #5e5e5e 1px 1px 2px;
 }
+@media screen and (max-width: 1920px){
+    .book_list_table{
+        width:700px;
+        height:700px;
+        overflow: scroll;
+    }
+}
+@media screen and (max-width: 1366px){
+    .book_list_table{
+        width:700px;
+        height:400px;
+        overflow: scroll;
+    }
+}
 .book_list_table table{
     width:680px;
     margin:0 auto;
@@ -100,14 +114,14 @@
 }
 .book_message{
     background-color: lightblue;
+    width:680px;
+    position: fixed;
 }
 .book_message th{
     text-align: center;
 }
 .book_message1{
     background-color: #f9f9f9;
-}
-.book_message_option{
 }
 .option_lable{
     display: inline-block;

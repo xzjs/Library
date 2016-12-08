@@ -87,12 +87,12 @@ function getBooksList() {
         for (var i = 0; i < result.length; i++) {
             var html = '<tr data-id=' + result[i]["id"] + ' data-img='
                 + result[i]["img"] + ' data-content='
-                + result[i]["content"] + ' class="book_message1"><td><input name="checkbox" type="checkbox"> </td> <td>'
-                + (i + 1) + '</td> <td class="book_no">'
-                + result[i]["book_no"] + '</td> <td><a class="name" href="/library/public/uploads/txts/' + result[i]["txt"] + '">'
-                + result[i]["name"] + '</a></td> <td class="author">'
-                + result[i]["author"] + '</td> <td class="publish">'
-                + result[i]["publish"] + '</td> <td width="4%"><img data-toggle="modal" data-target="#myModal" class="modification" src="img/modify.png" alt=""></td> </tr>';
+                + result[i]["content"] + ' class="book_message1"><td width="30px"><input name="checkbox" type="checkbox"> </td> <td width="30px">'
+                + (i + 1) + '</td> <td class="book_no" width="100px">'
+                + result[i]["book_no"] + '</td> <td width="260px"><a class="name" href="/library/public/uploads/txts/' + result[i]["txt"] + '">'
+                + result[i]["name"] + '</a></td> <td class="author" width="110px">'
+                + result[i]["author"] + '</td> <td class="publish" width="120px">'
+                + result[i]["publish"] + '</td> <td width="30px"><img data-toggle="modal" data-target="#myModal" class="modification" src="img/modify.png" alt=""></td> </tr>';
             table.append(html);
         }
         var tr = $(".book_message1");
