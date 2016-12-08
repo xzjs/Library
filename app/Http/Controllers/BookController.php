@@ -14,7 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books=Book::all();
+        $books = Book::all();
         return json_encode($books);
     }
 
@@ -81,16 +81,9 @@ class BookController extends Controller
     {
         try {
             $book = Book::find($id);
-            $book->fill($request->all());
-            if ($request->file('img') != null) {
-                $book->img = $this->upload_file($request->file('img'), 'img');
-            }
-            if ($request->file('txt') != null) {
-                $book->txt = $this->upload_file($request->file('txt'), 'txt');
-            }
-            $book->saveOrFail();
+            $book->update($request->all());
             return json_encode(true);
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             return json_encode($e->getMessage());
         }
     }
@@ -105,6 +98,23 @@ class BookController extends Controller
     {
         Book::destroy($id);
         return json_encode(true);
+    }
+
+    public function update_file(Request $request)
+    {
+        try {
+            $book = Book::find($request->id);
+            if ($request->file('img')) {
+                $book->img = $this->upload_file($request->file('img'), 'img');
+            }
+            if ($request->file('txt')) {
+                $book->txt = $this->upload_file($request->file('txt'), 'txt');
+            }
+            $book->save();
+            return json_encode(true);
+        } catch (\Exception $e) {
+            return json_encode($e->getMessage());
+        }
     }
 
     /**

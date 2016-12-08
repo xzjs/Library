@@ -58,20 +58,41 @@ $(document).ready(function () {
                     if (e == 'true') {
                         $('#myModal').modal('hide');
                         getBooksList();
+                    } else {
+                        console.log(e);
                     }
                 }
             })
         } else {
             $.ajax({
-                url: "/library/public/book/" + book_id,
-                type: "PUT",
+                url: "/library/public/book/update_file",
+                type: 'post',
                 data: formData,
                 processData: false,
                 contentType: false,
                 success: function (e) {
+                    if (e != 'true') {
+                        console.log(e);
+                    }
+                }
+            })
+            var formData2 = {
+                'book_no': $("[name='book_no']").val(),
+                'name': $("[name='name']").val(),
+                'author': $("[name='author']").val(),
+                'publish': $("[name='publish']").val(),
+                'content': $("[name='content']").val()
+            };
+            $.ajax({
+                url: "/library/public/book/" + book_id,
+                type: "PUT",
+                data: formData2,
+                success: function (e) {
                     if (e == "true") {
                         $('#myModal').modal('hide');
                         getBooksList();
+                    } else {
+                        console.log(e);
                     }
                 }
             });
