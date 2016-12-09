@@ -118,6 +118,19 @@ class BookController extends Controller
     }
 
     /**
+     * 按类别搜索
+     * @param Request $request
+     * @return string
+     */
+    public function search(Request $request)
+    {
+        $type = $request->type;
+        $key = $request->key;
+        $books = Book::where($type, 'like', '%' . $key . '%')->get();
+        return json_encode($books);
+    }
+
+    /**
      * 保存文件
      * @param $file 文件
      * @param $type 类型
