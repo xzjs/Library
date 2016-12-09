@@ -62,12 +62,12 @@
     height:32px;
     float: left;
 }
-.search_input1{
+.search_text{
     width:300px;
     height:32px;
     float: left;
 }
-.search_input2{
+.search_button{
     width:50px;
     height:32px;
     margin-left:0;
@@ -122,6 +122,9 @@
 }
 .book_message1{
     background-color: #f9f9f9;
+}
+.book_message2{
+    background-color: #f0f0f0;
 }
 .option_lable{
     display: inline-block;
