@@ -2,6 +2,13 @@
  * Created by yanlli on 2016/12/2.
  */
 $(document).ready(function () {
+    var adminId=$.cookie("admin_id");
+    if(adminId==null){
+        $(".bms").hide();
+        remainTime();
+    }else{
+        $(".unload").hide();
+    }
 
     $("#delete").mousedown(function () {
         $(this).css("box-shadow", "#5e5e5e 1px 1px 0px");
@@ -99,6 +106,25 @@ $(document).ready(function () {
         }
     });
     getBooksList();
+    $(".search_button").click(function(){
+        var type=$(":selected").val();
+        var key=$(".search_text").val();
+        $.post("/library/public/book/search",{type:type,key:key},function (result) {
+            var table = $("table");
+            $(".book_message1").remove();
+            for (var i = 0; i < result.length; i++) {
+                var html = '<tr data-id=' + result[i]["id"] + ' data-img='
+                    + result[i]["img"] + ' data-content='
+                    + result[i]["content"] + ' class="book_message2"><td width="30px"><input name="checkbox" type="checkbox"> </td> <td width="30px">'
+                    + i + '</td> <td class="book_no" width="100px">'
+                    + result[i]["book_no"] + '</td> <td width="260px"><a class="name" href="/library/public/uploads/txts/' + result[i]["txt"] + '">'
+                    + result[i]["name"] + '</a></td> <td class="author" width="110px">'
+                    + result[i]["author"] + '</td> <td class="publish" width="120px">'
+                    + result[i]["publish"] + '</td> <td width="30px"><img data-toggle="modal" data-target="#myModal" class="modification" src="img/modify.png" alt=""></td> </tr>';
+                table.append(html);
+            }
+        },"json");
+    });
 });
 
 function getBooksList() {
@@ -109,7 +135,7 @@ function getBooksList() {
             var html = '<tr data-id=' + result[i]["id"] + ' data-img='
                 + result[i]["img"] + ' data-content='
                 + result[i]["content"] + ' class="book_message1"><td width="30px"><input name="checkbox" type="checkbox"> </td> <td width="30px">'
-                + (i + 1) + '</td> <td class="book_no" width="100px">'
+                + i + '</td> <td class="book_no" width="100px">'
                 + result[i]["book_no"] + '</td> <td width="260px"><a class="name" href="/library/public/uploads/txts/' + result[i]["txt"] + '">'
                 + result[i]["name"] + '</a></td> <td class="author" width="110px">'
                 + result[i]["author"] + '</td> <td class="publish" width="120px">'
@@ -169,4 +195,14 @@ function getBooksList() {
         });
     });
 }
+var t=5;
+function remainTime() {
+    $(".delay").html(t);
+    t-=1;
+    if(t==0){
+        window.location.href = "index.html";
+    }
+    setTimeout("remainTime()",1000);
+}
+
 

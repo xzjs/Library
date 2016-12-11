@@ -53,8 +53,7 @@ body{
     width:320px;
     height:230px;
     border:1px solid #8c8c8c;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 1px;
     text-align: center;
     padding-top: 40px;
 }

@@ -9,10 +9,14 @@
     <link rel="stylesheet" href="css/book_list.css">
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
     <script type="text/javascript" src="js/book_list.js"></script>
     <title>BMS</title>
 </head>
 <body>
+<p class="unload">
+    用户尚未登录，<span class="delay"></span>秒后将跳转至登录页或直接点击<a href="index.html">跳转</a>
+</p>
 <div class="bms">
     <div class="bms_title">
         <p>图书管理</p>
@@ -29,14 +33,14 @@
         </div>
         <div class="book_list">
             <div id="search_list">
-                <select name="" id="">
-                    <option value="图书编号">图书编号</option>
-                    <option value="图书名称">图书名称</option>
-                    <option value="作者">作者</option>
+                <select id="search_select">
+                    <option value="book_no">图书编号</option>
+                    <option value="name">图书名称</option>
+                    <option value="author">作者</option>
                 </select>
                 <div class="search_input">
-                    <input class="search_input1" type="text">
-                    <input class="search_input2" type="submit" value="查询">
+                    <input class="search_text" type="text">
+                    <input class="search_button" type="submit" value="查询">
                 </div>
             </div>
             <div class="book_list_manage">
