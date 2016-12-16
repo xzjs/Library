@@ -43,7 +43,7 @@ class UserController extends Controller
             $user->saveOrFail();
             return json_encode($user->id);
         } catch (\Exception $e) {
-            return json_encode($e->getMessage());
+            return json_encode(0);
         }
     }
 
