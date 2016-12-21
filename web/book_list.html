@@ -14,7 +14,7 @@
     <title>BMS</title>
 </head>
 <body>
-<p class="unload">
+<p class="unload" style="display:none">
     用户尚未登录，<span class="delay"></span>秒后将跳转至登录页或直接点击<a href="index.html">跳转</a>
 </p>
 <div class="bms">
@@ -39,13 +39,14 @@
                     <option value="author">作者</option>
                 </select>
                 <div class="search_input">
-                    <input class="search_text" type="text">
+                    <input class="search_text" type="text" autofocus="autofocus">
                     <input class="search_button" type="submit" value="查询">
                 </div>
             </div>
             <div class="book_list_manage">
-                <a id="delete" href="javascript:void(0)">删除</a>
-                <a id="add" href="javascript:void(0)" data-toggle="modal" data-target="#myModal">添加</a>
+                <a id="delete" href="javascript:void(0)" style="display:none">删除</a>
+                <a id="add" href="javascript:void(0)" style="display:none" data-toggle="modal" data-target="#myModal">添加</a>
+                <a id="download" href="javascript:void(0)" style="display:none">下载</a>
             </div>
                 <div class="book_list_table">
                     <table>

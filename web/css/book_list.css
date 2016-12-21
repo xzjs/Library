@@ -73,6 +73,7 @@
     margin-left:0;
 }
 .book_list_manage{
+    height: 21px;
     margin: 3px 15px;
 }
 .book_list_manage a{
@@ -99,7 +100,7 @@
     .book_list_table{
         width:700px;
         height:400px;
-        overflow: scroll;
+        overflow:auto;
     }
 }
 .book_list_table table{
@@ -122,9 +123,6 @@
 }
 .book_message1{
     background-color: #f9f9f9;
-}
-.book_message2{
-    background-color: #f0f0f0;
 }
 .option_lable{
     display: inline-block;
