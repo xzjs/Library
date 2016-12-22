@@ -21,4 +21,5 @@ Route::post('/book/search','BookController@search');
 Route::resource('book','BookController');
 
 Route::post('/user/login','UserController@login');
+Route::post('/user/check_username','UserController@check_username');
 Route::resource('user','UserController');

@@ -102,4 +102,17 @@ class UserController extends Controller
         }
 
     }
+
+    /**
+     * 检测注册用户名是否重复
+     * @param Request $request
+     * @return string
+     */
+    public function check_username(Request $request){
+        $user=User::where('name',$request->name)->first();
+        if($user){
+            return json_encode(false);
+        }
+        return json_encode(true);
+    }
 }
