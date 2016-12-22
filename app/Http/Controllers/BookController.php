@@ -103,6 +103,7 @@ class BookController extends Controller
     public function update_file(Request $request)
     {
         try {
+            $id=$request->id;
             $book = Book::find($request->id);
             if ($request->file('img')) {
                 $book->img = $this->upload_file($request->file('img'), 'img');

@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::post('/admin/login','AdminController@login');
 
 Route::post('/book/search','BookController@search');
+Route::post('/book/update_file','BookController@update_file');
 Route::resource('book','BookController');
 
 Route::post('/user/login','UserController@login');
