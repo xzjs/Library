@@ -55,7 +55,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return json_encode(User::find($id));
     }
 
     /**
@@ -78,7 +78,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $user = User::find($id);
+            $user->name = $request->name;
+            $user->pwd = md5($request->pwd);
+            $user->saveOrFail();
+            return json_encode(true);
+        } catch (\Exception $exception) {
+            return json_encode($exception->getMessage());
+        }
     }
 
     /**
@@ -108,9 +116,10 @@ class UserController extends Controller
      * @param Request $request
      * @return string
      */
-    public function check_username(Request $request){
-        $user=User::where('name',$request->name)->first();
-        if($user){
+    public function check_username(Request $request)
+    {
+        $user = User::where('name', $request->name)->first();
+        if ($user) {
             return json_encode(false);
         }
         return json_encode(true);
