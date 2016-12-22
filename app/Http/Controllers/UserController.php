@@ -95,10 +95,10 @@ class UserController extends Controller
     public function login(Request $request)
     {
         try {
-            $book = Book::where('name', $request->name)->where('pwd', md5($request->pwd))->firstOrFail();
-            return json_encode(true);
+            $user = User::where('name', $request->name)->where('pwd', md5($request->pwd))->firstOrFail();
+            return json_encode($user->id);
         } catch (\Exception $exception) {
-            return json_encode($exception->getMessage());
+            return json_encode(0);
         }
 
     }
